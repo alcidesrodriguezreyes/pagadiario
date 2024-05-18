@@ -29,7 +29,7 @@ type Story = StoryObj<typeof Tabs>;
 
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const OneItem: Story = {
+export const Default: Story = {
   render: () => {
 
     return (
