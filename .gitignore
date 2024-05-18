@@ -34,3 +34,5 @@ yarn-error.log*
 
 .contentlayer
 .env
+*storybook.log
+storybook-static
