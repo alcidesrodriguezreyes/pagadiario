@@ -1,6 +1,8 @@
 import React from "react"
 import type { Preview } from "@storybook/react"
 import { Inter as FontSans } from "next/font/google"
+import { cn } from "../lib/utils"
+
 
 
 import "../styles/globals.css"
@@ -24,7 +26,11 @@ const preview: Preview = {
 
   decorators: [
     Story => (
-      <main className={fontSans.className}>
+      <main className={cn(
+          fontSans.className,
+          fontSans.variable
+        )}
+      >
         <Story />
       </main>
     ),
