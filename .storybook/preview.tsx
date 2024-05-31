@@ -2,6 +2,7 @@ import React from "react"
 import type { Preview } from "@storybook/react"
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "../lib/utils"
+import { themes, ensure } from '@storybook/theming';
 
 
 
@@ -22,6 +23,9 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      theme: themes.dark
+    }
   },
 
   decorators: [
