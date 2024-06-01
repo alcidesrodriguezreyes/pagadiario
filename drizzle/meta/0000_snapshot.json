@@ -1,0 +1,185 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "id": "d2b5ee89-df69-48cb-8cd7-5cd8b678dcdd",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "cliente": {
+      "name": "cliente",
+      "columns": {
+        "identificacion": {
+          "name": "identificacion",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "tipoIdentification": {
+          "name": "tipoIdentification",
+          "type": "enum('CC','CE','TI','NIT')",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "creadoEn": {
+          "name": "creadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "actualizadoEn": {
+          "name": "actualizadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "cliente_identificacion": {
+          "name": "cliente_identificacion",
+          "columns": [
+            "identificacion"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "cobrador": {
+      "name": "cobrador",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "clave": {
+          "name": "clave",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "cobrador_id": {
+          "name": "cobrador_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "perfil": {
+      "name": "perfil",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "cliente": {
+          "name": "cliente",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "cobrador": {
+          "name": "cobrador",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "apellido": {
+          "name": "apellido",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "telefono": {
+          "name": "telefono",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "direccion": {
+          "name": "direccion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "perfil_cliente_cliente_identificacion_fk": {
+          "name": "perfil_cliente_cliente_identificacion_fk",
+          "tableFrom": "perfil",
+          "tableTo": "cliente",
+          "columnsFrom": [
+            "cliente"
+          ],
+          "columnsTo": [
+            "identificacion"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "perfil_cobrador_cobrador_id_fk": {
+          "name": "perfil_cobrador_cobrador_id_fk",
+          "tableFrom": "perfil",
+          "tableTo": "cobrador",
+          "columnsFrom": [
+            "cobrador"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "perfil_id": {
+          "name": "perfil_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {},
+    "indexes": {}
+  }
+}

@@ -13,6 +13,8 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "storybook": "storybook dev -p 6006",
+    "migration:generate": "drizzle-kit generate",
+    "migration:push": "npx esrun ./db/migrate.ts",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -33,7 +35,9 @@
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "date-fns": "^3.6.0",
+    "drizzle-orm": "^0.31.0",
     "lucide-react": "0.105.0-alpha.4",
+    "mysql2": "^3.10.0",
     "next": "^14.2.3",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
@@ -63,6 +67,8 @@
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/parser": "^5.61.0",
     "autoprefixer": "^10.4.19",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.22.1",
     "eslint": "^8.44.0",
     "eslint-config-next": "13.0.0",
     "eslint-config-prettier": "^8.8.0",
