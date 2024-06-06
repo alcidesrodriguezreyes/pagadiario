@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "9c39e7e7-0ae4-4a05-915b-42aeb87b3805",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "1df51854-bac2-4ecb-903b-3cbef4653513",
+  "prevId": "0e1e1c9f-d819-4703-8d30-b3e3c78ce66e",
   "tables": {
     "cliente": {
       "name": "cliente",
@@ -152,6 +152,22 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
+        },
+        "creadoEn": {
+          "name": "creadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "actualizadoEn": {
+          "name": "actualizadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
         }
       },
       "indexes": {},
@@ -161,6 +177,123 @@
           "name": "cobrador_identificacion",
           "columns": [
             "identificacion"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "prestamo": {
+      "name": "prestamo",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "clienteId": {
+          "name": "clienteId",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "cobradorId": {
+          "name": "cobradorId",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "monto": {
+          "name": "monto",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "cuotas": {
+          "name": "cuotas",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "valorCuota": {
+          "name": "valorCuota",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "fechaInicio": {
+          "name": "fechaInicio",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "fechaFin": {
+          "name": "fechaFin",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "creadoEn": {
+          "name": "creadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "actualizadoEn": {
+          "name": "actualizadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "prestamo_clienteId_cliente_identificacion_fk": {
+          "name": "prestamo_clienteId_cliente_identificacion_fk",
+          "tableFrom": "prestamo",
+          "tableTo": "cliente",
+          "columnsFrom": [
+            "clienteId"
+          ],
+          "columnsTo": [
+            "identificacion"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "prestamo_cobradorId_cobrador_identificacion_fk": {
+          "name": "prestamo_cobradorId_cobrador_identificacion_fk",
+          "tableFrom": "prestamo",
+          "tableTo": "cobrador",
+          "columnsFrom": [
+            "cobradorId"
+          ],
+          "columnsTo": [
+            "identificacion"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "prestamo_id": {
+          "name": "prestamo_id",
+          "columns": [
+            "id"
           ]
         }
       },

@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "9c39e7e7-0ae4-4a05-915b-42aeb87b3805",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "0e1e1c9f-d819-4703-8d30-b3e3c78ce66e",
+  "prevId": "9c39e7e7-0ae4-4a05-915b-42aeb87b3805",
   "tables": {
     "cliente": {
       "name": "cliente",
@@ -152,6 +152,22 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
+        },
+        "creadoEn": {
+          "name": "creadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
+        },
+        "actualizadoEn": {
+          "name": "actualizadoEn",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(now())"
         }
       },
       "indexes": {},
